@@ -1,0 +1,103 @@
+swagger: "2.0"
+info:
+  title: "AZ OM-API"
+  version: "0.0.1"
+  description: "AZ OM API version 1.x"
+basePath: "/api"
+tags:
+- name: "azapi"
+  description: "az apit"
+schemes:
+- "http"
+paths:
+  /discount:
+    get:
+       tags:
+       - "discount"
+       summary: "return all discount"
+       description: "return all discount."
+       operationId: "geAllDiscounts"
+       produces:
+       - "application/json"
+       responses:
+         200:
+           description: "Successful operation."
+           schema:
+             $ref: "#/definitions/Discount"
+    post:
+        tags:
+        - "discount"
+        summary: "add new discount."
+        description: "add new discount for a given product."
+        operationId: "addDiscount"
+        produces:
+        - "application/json"
+        consumes:
+        - "application/json"
+        parameters:
+        - name: "discount"
+          in: "body"
+          description: "discount to add to the store"
+          required: "true"
+          schema:
+            $ref: "#/definitions/Discount"
+        responses:
+          200:
+             description: "Successful operation."
+             schema:
+               $ref: "#/definitions/Discount"
+  /discount/{productId}:
+    get:
+        tags:
+        - "discount"
+        summary: "Returns all discount of the given product-id."
+        description: "Returns all product visible for the user matching filter criteria."
+        operationId: "getDiscount"
+        produces:
+        - "application/json"
+        parameters:
+        - name: "productId"
+          in: "path"
+          description: "Application id"
+          required: "true"
+          type: "integer"
+          format: "int64"
+        responses:
+          200:
+            description: "Successful operation."
+            schema:
+              $ref: "#/definitions/Discount"
+          400:
+            description: "Invalid parameter value."
+          401:
+            description: "Unauthorized - No user credentials where provided."
+          403:
+            description: "Forbidden - The user cannot access this resource."
+          404:
+            description: "Not Found - No result has been found matching the request criteria or the user lacks permissions to view this result."
+            schema:
+              $ref: "#/definitions/Error"
+definitions:
+  Discount:
+    description: "The Response that may contain different variations of the telex to get displayed at the frontend"
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "productId"
+        example: "productID"
+      price:
+        type: "integer"
+        description: "price"
+        example: "price"
+      amount:
+        type: "integer"
+        description: "amount"
+        example: "amount"
+  Error:
+    properties:
+      error:
+        type: "string"
+        description: "error"
+        example: "error"

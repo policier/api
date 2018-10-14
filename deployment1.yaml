@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: productservice
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        app: productservice
+    spec:
+      containers:
+      - name: discountservice
+        image: akskubetest.azurecr.io/productservice:2.0.0.RELEASE
+        ports:
+        - containerPort: 8090

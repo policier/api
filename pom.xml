@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>om.az</groupId>
+	<artifactId>api</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+
+	<properties>
+		<spring-cloud.version>Finchley.M8</spring-cloud.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>8</java.version>
+		<keycloak.version>2.5.5.Final</keycloak.version>
+		<swagger.version>2.7.0</swagger.version>
+		<swagger.codegen.maven.plugin.version>2.3.1</swagger.codegen.maven.plugin.version>
+		<wiremock.version>2.18.0</wiremock.version>
+		<docker.image.prefix>omapi</docker.image.prefix>
+		<azure.containerRegistry>cregom</azure.containerRegistry>
+		<docker.registry>cregom.azurecr.io</docker.registry>
+		<!--<docker.image.prefix>cregom.azurecr.io</docker.image.prefix>-->
+		<!--<azure.containerRegistry>cregom</azure.containerRegistry>-->
+		<!--<docker.registry>cregom.azurecr.io</docker.registry>-->
+	</properties>
+
+	<modules>
+		<module>discountservice</module>
+		<module>productservice</module>
+		<module>eureka</module>
+	</modules>
+
+
+</project>

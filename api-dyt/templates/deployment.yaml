@@ -1,0 +1,35 @@
+{{- range .Values.applications }}
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ .name}}
+  labels:
+    component: {{ .name }}
+    app: {{ .name }}
+    chart: {{ template "api-dyt.chart" $}}
+    release: {{ $.Release.Name }}
+    heritage: {{ $.Release.Service }}
+spec:
+  replicas: {{ $.Values.replicaCount }}
+  selector:
+    matchLabels:
+      component: {{ .name }}
+      app: {{ .name }}
+      release: {{ $.Release.Name }}
+  template:
+    metadata:
+      labels:
+        component: {{ .name }}
+        app: {{ .name }}
+        release: {{ $.Release.Name }}
+    spec:
+      containers:
+        - name: {{ .name }}
+          image: "{{ .image.repository }}:{{ .image.tag }}"
+          imagePullPolicy: {{ .image.pullPolicy }}
+          ports:
+          - containerPort: {{ .port | default "8080"}}
+          resources:
+          {{ toYaml .resources | indent 12 }}
+---
+{{- end }}

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eurekaservice
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        app: eurekaservice
+    spec:
+      containers:
+      - name: eurekaservice
+        image: akskubetest.azurecr.io/eureka:2.0.0.RELEASE
+        ports:
+        - containerPort: 8761

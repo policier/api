@@ -1,0 +1,115 @@
+swagger: "2.0"
+info:
+  title: "AZ OM-API"
+  version: "0.0.1"
+  description: "AZ OM API version 1.x"
+basePath: "/api"
+tags:
+- name: "azapi"
+  description: "az apit"
+schemes:
+- "http"
+produces:
+  - "application/json"
+paths:
+  /product:
+    get:
+       tags:
+       - "product"
+       summary: "Returns all product of the given product-id."
+       description: "Returns all product visible for the user matching filter criteria."
+       operationId: "geAllProduct"
+       produces:
+       - "application/json"
+       responses:
+         200:
+           description: "Successful operation."
+           schema:
+             type: "array"
+             items:
+              $ref: "#/definitions/Product"
+    post:
+       tags:
+       - "product"
+       summary: "add new product."
+       description: "Returns all product visible for the user matching filter criteria."
+       operationId: "addProduct"
+       produces:
+        - "application/json"
+       consumes:
+        - "application/json"
+       parameters:
+        - name: "product"
+          in: "body"
+          description: "product to add to the store"
+          required: "true"
+          schema:
+            $ref: "#/definitions/Product"
+       responses:
+         200:
+           description: "Successful operation."
+           schema:
+             $ref: "#/definitions/Product"
+  /product/{productId}:
+    get:
+      tags:
+      - "product"
+      summary: "Returns all product of the given product-id."
+      description: "Returns all product visible for the user matching filter criteria."
+      operationId: "getProduct"
+      produces:
+      - "application/json"
+      parameters:
+      - type: "integer"
+        format: "int64"
+        description: "productId"
+        name: "productId"
+        in: "path"
+        required: "true"
+      responses:
+        200:
+          description: "Successful operation."
+          schema:
+            $ref: "#/definitions/Product"
+        400:
+          description: "Invalid parameter value."
+        401:
+          description: "Unauthorized - No user credentials where provided."
+        403:
+          description: "Forbidden - The user cannot access this resource."
+        404:
+          description: "Not Found - No result has been found matching the request criteria or the user lacks permissions to view this result."
+          schema:
+            $ref: "#/definitions/Error"
+definitions:
+  Product:
+    description: "The Response that may contain different variations of the telex to get displayed at the frontend"
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        description: "name"
+        example: "name"
+      id:
+        type: "integer"
+        format: "int64"
+        description: "id"
+        example: "price"
+      price:
+        type: "integer"
+        description: "price"
+        example: "price"
+      formerPrice:
+        type: "integer"
+        description: "formerPrice"
+        example: "formerPrice"
+      amount:
+        type: "integer"
+        description: "amount"
+        example: "amount"
+  Error:
+    properties:
+      error:
+        type: "string"
+        description: "error"
+        example: "error"
