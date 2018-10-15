@@ -42,10 +42,10 @@ services:
     name: discountservice
     type: NodePort
     port: 8091
-  eureka:
-    name: eureka-server
-    type: NodePort
-    port: 8761
+  #eureka:
+    #name: eureka-server
+    #type: NodePort
+    #port: 8761
 
 ingress:
   enabled: false
