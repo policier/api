@@ -10,7 +10,7 @@ applications:
     replicas: 1
     port: 8090
     image:
-      repository: boot/productservice
+      repository: productservice
       tag: 2.0.0.RELEASE
       pullPolicy: IfNotPresent
   discountservice:
@@ -18,7 +18,7 @@ applications:
     replicas: 1
     port: 8091
     image:
-      repository: boot/discountservice
+      repository: discountservice
       tag: 2.0.0.RELEASE
       pullPolicy: IfNotPresent
 
