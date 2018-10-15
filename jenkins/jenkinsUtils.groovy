@@ -7,6 +7,8 @@ def build(String currentContext){
                 SET DOCKER_API_VERSION=1.35
                 
                 cd productservice && mvn install docker:build && cd ..
+                
+                
                 cd discountservice && mvn install docker:build && cd ..
             """
     }
