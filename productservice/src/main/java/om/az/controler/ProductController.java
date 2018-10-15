@@ -7,7 +7,7 @@ import om.az.api.model.Product;
 import om.az.model.Discount;
 import om.az.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
+//import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +25,8 @@ import java.util.List;
 @Log
 public class ProductController implements ProductApi {
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
+//    @Autowired
+//    private DiscoveryClient discoveryClient;
     @Autowired
     private ProductService productService;
 
