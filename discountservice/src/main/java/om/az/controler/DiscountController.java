@@ -26,7 +26,7 @@ public class DiscountController implements DiscountApi {
 
     @Override
     public ResponseEntity<Discount> getDiscount(@ApiParam(value = "Application id",required=true) @PathVariable("productId") Long productId)   {
-        log.info("weatherDataweatherDataweatherDataweatherDataweatherDataweatherDataweatherDataweatherData" + productId);
+        log.info("DiscountController:getDiscount:productid " + productId);
         return new ResponseEntity<>(discountService.getDiscount(productId), HttpStatus.OK);
     }
 

@@ -50,10 +50,10 @@ public class ProductController implements ProductApi {
 
         Product product = productService.getProduct(productID);
         if(product != null) {
-            log.info("weatherDataweatherDataweatherDataweatherDataweatherDataweatherDataweatherDataweatherData s " + productID);
+            log.info("ProductController:getProduct:productid " + productID);
 //          Discount discount = restTemplate.getForObject("http://localhost8091/discount/"+productID,Discount.class);
             Discount discount = restTemplate.getForObject("http://discountservice:8091/discount/"+ productID, Discount.class);
-            log.info("weatherDataweatherDataweatherDataweatherDataweatherDataweatherDataweatherDataweatherData" + discount);
+            log.info("ProductController:getProduct" + discount);
             if(discount != null) {
                 product.setFormerPrice(product.getPrice());
                 product.setPrice(discount.getPrice());
