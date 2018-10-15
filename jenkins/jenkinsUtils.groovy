@@ -39,6 +39,7 @@ def deployDataApp(String currentContext,  boolean isHelm) {
      if (isHelm) {
 
          powershell """
+   
 
                     helm delete \\\$(helm ls --short)
 
