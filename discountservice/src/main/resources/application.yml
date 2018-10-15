@@ -29,6 +29,6 @@ spring:
     #serviceUrl:
       #defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
       
-ribbon:
-  eureka:
-    enabled: true
+#ribbon:
+  #eureka:
+    #enabled: true

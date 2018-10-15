@@ -17,10 +17,10 @@ spring:
       org.springframework: WARN
       org.hibernate: WARN
 
-eureka:
-  hosts: eureka-server
-  instance:
-      preferIpAddress: true
+#eureka:
+  #hosts: eureka-server
+  #instance:
+      #preferIpAddress: true
   #client:
     #serviceUrl:
       #defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
