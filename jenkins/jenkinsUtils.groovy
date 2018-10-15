@@ -22,12 +22,12 @@ def deployDataApp(String currentContext,  boolean isHelm) {
     
               kubectl config use-context  ${currentContexts}
     
-              kubectl get nodes     S
+              kubectl get nodes     
        """
      if (isHelm) {
 
      bat """
-                 helm delete \$(helm ls --short) 
+                 helm delete-all
                  helm ls
                  helm install api-dyt
          """
