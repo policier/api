@@ -38,9 +38,14 @@ def deployDataApp(String currentContext,  boolean isHelm) {
        """
      if (isHelm) {
 
-     bat """
-                 helm delete \$(helm ls --short)
-                 
+         powershell """
+
+                    helm delete \\\$(helm ls --short)
+
+                    """
+
+         bat """
+                                  
                  helm ls
                  helm install api-dyt
          """
