@@ -6,7 +6,8 @@ def build(String currentContext){
                 SET DOCKER_CERT_PATH=C:\\Users\\mougoueo\\.minikube\\certs
                 SET DOCKER_API_VERSION=1.35
                 
-                cd productservice && mvn install docker:build
+                cd productservice && mvn install docker:build && cd ..
+                cd discountservice && mvn install docker:build && cd ..
             """
     }
 
@@ -27,7 +28,6 @@ def deployDataApp(String currentContext,  boolean isHelm) {
      if (isHelm) {
 
      bat """
-                 helm delete-all
                  helm ls
                  helm install api-dyt
          """

@@ -22,14 +22,14 @@ applications:
       tag: 2.0.0.RELEASE
       pullPolicy: IfNotPresent
 
-infrastructure:
-  eureka:
-    name: eureka-server
-    port: 8761
-    image:
-      repository: eureka
-      tag: 2.0.0.RELEASE
-      pullPolicy: IfNotPresent
+#infrastructure:
+ # eureka:
+  #  name: eureka-server
+   # port: 8761
+    #image:
+     # repository: eureka
+      #tag: 2.0.0.RELEASE
+      #pullPolicy: IfNotPresent
 
 service:
   type: NodePort
