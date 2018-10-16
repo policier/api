@@ -52,8 +52,7 @@ public class ProductController implements ProductApi {
         if(product != null) {
             log.info("ProductController:getProduct:productid " + productID);
 //          Discount discount = restTemplate.getForObject("http://localhost8091/discount/"+productID,Discount.class);
-//            Discount discount = restTemplate.getForObject("http://discountservice:8091/discount/"+ productID, Discount.class);
-            Discount discount = restTemplate.getForObject("http://discountservice/discount/"+ productID, Discount.class);
+            Discount discount = restTemplate.getForObject("http://discountservice:8091/discount/"+ productID, Discount.class);
             log.info("ProductController:getProduct" + discount);
             if(discount != null) {
                 product.setFormerPrice(product.getPrice());
