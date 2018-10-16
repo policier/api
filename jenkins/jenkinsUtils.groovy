@@ -45,7 +45,9 @@ def deployDataApp(String currentContext,  boolean isHelm) {
                  
                  helm delete releasePH
                  
-                 helm install api-dyt --name releasePH
+                 helm delete  demo-release
+
+                 helm install api-dyt --name demo-release
          """
 
      } else {
