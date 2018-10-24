@@ -32,7 +32,7 @@ def deployDataApp(String currentContext,  boolean isHelm) {
                 
               kubectl config get-contexts 
     
-              kubectl config use-context  ${currentContexts}
+              kubectl config use-context  aks-kube-test-admin
     
               kubectl get nodes     
        """
