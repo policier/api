@@ -10,7 +10,7 @@ applications:
     replicas: 1
     port: 8090
     image:
-      repository: productservice
+      repository: akskubetest.azurecr.io/productservice
       tag: 2.0.0.RELEASE
       pullPolicy: IfNotPresent
   discountservice:
@@ -18,7 +18,7 @@ applications:
     replicas: 1
     port: 8091
     image:
-      repository: discountservice
+      repository: akskubetest.azurecr.io/discountservice
       tag: 2.0.0.RELEASE
       pullPolicy: IfNotPresent
 
