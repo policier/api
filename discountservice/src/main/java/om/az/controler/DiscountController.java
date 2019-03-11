@@ -33,7 +33,7 @@ public class DiscountController implements DiscountApi {
     @Override
     public ResponseEntity<Discount> addDiscount(@ApiParam(value = "discount to add to the store" , required=true )
     @Valid @RequestBody Discount discount) {
-    	System.out.println("Sharing peeking check");
+    	System.out.println("Sharing peekings check");
         Discount addDiscount = discountService.addDiscount(discount);
         return new ResponseEntity<>(addDiscount, HttpStatus.OK);
     }
